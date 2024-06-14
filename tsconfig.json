@@ -26,6 +26,7 @@
     ],
     "include": [
         "**/*.ts",
-        "cypress/support/index.js"
+        "cypress/support/index.js",
+        "cypress/support/e2e.js"
     ]
 }
