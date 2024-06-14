@@ -1,6 +1,8 @@
 import { Then, When } from "@badeball/cypress-cucumber-preprocessor";
 import AssertLoginPage from "../../support/assertPages/AssertLoginPage";
 import LoginPage from "../../support/pages/LoginPage";
+import { getUserValidData } from "../../support/utils/data-generator";
+import AssertUserPage from "../../support/assertPages/AssertUserPage";
 
 When('I navigate to the login page', () => {
     cy.visit('/user/login')
@@ -25,4 +27,14 @@ Then('I verify error message is displayed', () => {
 
 When('I enter incorrect {string}', (email: string) => {
     LoginPage.getEmailInput().clear().type(email)
+})
+
+When('I enter the correct email and password', () => {
+    let userData = getUserValidData()
+    LoginPage.getEmailInput().clear().type(userData.email)
+    LoginPage.getPasswordInput().clear().type(userData.password)
+})
+
+Then('I land in my user page and I see a welcome message with my name', () => {
+    AssertUserPage.checkTitle()
 })
