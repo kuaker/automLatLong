@@ -9,15 +9,11 @@ Feature: Feature name
         Then I verify "User Login" title is visible
 
     Scenario Outline: Login User with incorrect email and password
-        When I enter incorrect "<email>" address and "<password>"
+        When I enter incorrect "<email>" and "<password>"
         And I click login button
         Then I verify error message is displayed
         Examples:
-            | email               | password    |
-            | arroupe09@gmail.com | 12132135678 |
-            | arroupe09@gmail.com | 12          |
-            | arroupe             | 12132135678 |
-            | arroupe.com         | 1           |
-
-
-
+            | email               | password         |
+            | arroupe09@gmail.com | 12132135678      |
+            | arroupe09@gmail.com | 12               |
+            | arroupe@gmail.com   | challengeNewFire |
