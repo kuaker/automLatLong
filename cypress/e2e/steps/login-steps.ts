@@ -3,6 +3,7 @@ import AssertLoginPage from "../../support/assertPages/AssertLoginPage";
 import LoginPage from "../../support/pages/LoginPage";
 import { getUserValidData } from "../../support/utils/data-generator";
 import AssertUserPage from "../../support/assertPages/AssertUserPage";
+import UserPage from "../../support/pages/UserPage";
 
 When('I navigate to the login page', () => {
     cy.visit('/user/login')
@@ -37,4 +38,8 @@ When('I enter the correct email and password', () => {
 
 Then('I land in my user page and I see a welcome message with my name', () => {
     AssertUserPage.checkTitle()
+})
+
+Then('I click Logout button', () => {
+    UserPage.clickOnLogOutButton()
 })

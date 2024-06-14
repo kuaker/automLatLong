@@ -22,3 +22,10 @@ Feature: Feature name
         When I enter the correct email and password
         And I click login button
         Then I land in my user page and I see a welcome message with my name
+
+    Scenario: Logout User
+        When I enter the correct email and password
+        And I click login button
+        Then I land in my user page and I see a welcome message with my name
+        When I click Logout button
+        Then I verify "User Login" title is visible
