@@ -6,11 +6,7 @@ Feature: Find Location
         # This steps can be replaced by doing an api login step.
         Given I navigate to home page
         Then I verify that home page is visible successfully
-        When I navigate to the login page
-        Then I verify "User Login" title is visible
-        When I enter the correct email and password
-        And I click login button
-        Then I land in my user page and I see a welcome message with my name
+        When I login as a user
 
     Scenario: I search a place and I get the latitude and the longitud
         When I click on the logo
@@ -19,3 +15,13 @@ Feature: Find Location
         And I type the place name
         And I click on "Find" button
         Then I verify the latitude and the longitud numbers are visible
+
+    Scenario: I share the place url
+        When I click on the logo
+        Then I verify that home page is visible successfully
+        And I type the place name
+        And I click on "Find" button
+        Then I verify the latitude and the longitud numbers are visible
+        When I copy the link url
+        And I navigate to the url
+        Then I see the url shared

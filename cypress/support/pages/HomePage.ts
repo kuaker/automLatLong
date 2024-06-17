@@ -24,6 +24,17 @@ export class HomePage {
 
     getLocationURL = () => cy.get(LOCATION_URL)
 
+    saveLocationUrl = () => {
+        this.getLocationURL().invoke('val').then((url) => {
+            cy.writeFile('cypress/fixtures/newUrl.json', JSON.stringify(url))
+        })
+    }
+
+    navigateToNewUrl = () => {
+        cy.readFile('cypress/fixtures/newUrl.json').then((data) => {
+            cy.goToUrl(data)
+        })
+    }
 }
 
 export default new HomePage()

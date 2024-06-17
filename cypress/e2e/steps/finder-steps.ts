@@ -1,6 +1,7 @@
 import { Then } from "@badeball/cypress-cucumber-preprocessor";
 import AssertHomePage from "../../support/assertPages/AssertHomePage";
 import HomePage from "../../support/pages/HomePage";
+import AssertSharedUrlPage from "../../support/assertPages/AssertSharedUrlPage";
 
 const PLACE_NAME = 'Buenos Aires'
 
@@ -20,4 +21,17 @@ Then('I verify the latitude and the longitud numbers are visible', () => {
     AssertHomePage.checkLatitudeAndLongitudeNumberAreVisible()
     AssertHomePage.checkShareLocationLink()
     AssertHomePage.checkLocationURL()
+})
+
+Then('I copy the link url', () => {
+    HomePage.saveLocationUrl()
+})
+
+Then('I navigate to the url', () => {
+    HomePage.navigateToNewUrl()
+})
+
+Then('I see the url shared', () => {
+    AssertSharedUrlPage.checkSharedUrlTitile()
+    AssertSharedUrlPage.checkUrl()
 })

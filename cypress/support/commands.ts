@@ -22,7 +22,23 @@
 //
 //
 // -- This will overwrite an existing command --
+
+import LoginPage from "./pages/LoginPage";
+
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 Cypress.Commands.add('getByName', (id) => {
     return cy.get(`[name="${id}"]`);
+});
+
+Cypress.Commands.add('login', (username: string, password: string) => {
+    cy.visit('/user/login')
+    LoginPage.getEmailInput().clear().type(username)
+    LoginPage.getPasswordInput().clear().type(password)
+    LoginPage.clickOnLoginButton()
+})
+
+Cypress.Commands.add('goToUrl', (newUrl: string) => {
+    cy.window().then(win => {
+        win.location.href = newUrl
+    })
 });
