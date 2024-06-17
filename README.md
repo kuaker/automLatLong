@@ -18,4 +18,12 @@ Open the Cypress GUI by executing `npm run cy:run` for running tests using cypre
 
 # Reports locally
 Reports will be generate as a .html file in the root path as cucumber-report.hml
+
+# Project Structure and settings
+> The project was built using cypress framework with Typescript.
+> I used POM (Page Object Model).
+> I set it up to run it in differents environments (/config)
+> I used assert-pages in order to reuse assertions
+> I created some data generators for reusability.
+
 ```
