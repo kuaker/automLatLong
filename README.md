@@ -16,4 +16,6 @@ npx cypress install
 Open the Cypress GUI by executing `npm run cy:open` for running tests using cypress dashboard.
 Open the Cypress GUI by executing `npm run cy:run` for running tests using cypress headless.
 
+# Reports locally
+Reports will be generate as a .html file in the root path as cucumber-report.hml
 ```
