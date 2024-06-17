@@ -37,6 +37,30 @@ export class AssertHomePage {
         })
     }
 
+    checkShareLocationLink = () => {
+        cy.log('***checkShareLocationLink***')
+        cy.get('@latitudeNumber').then((latitude) => {
+            cy.get('@longitudNumber').then((longitude) => {
+                HomePage.getShareLocationLink().then((shareLink) => {
+                    expect(shareLink.text()).to.be.eq(`<a href="https://www.latlong.net/c/?lat=${latitude}&long=${longitude}" target="_blank">(${latitude}, ${longitude})</a>`)
+                })
+            })
+        })
+
+    }
+
+    checkLocationURL = () => {
+        cy.log('***checkLocationURL***')
+        cy.get('@latitudeNumber').then((latitude) => {
+            cy.get('@longitudNumber').then((longitude) => {
+                HomePage.getLocationURL().invoke('val').then((locationURL) => {
+                    expect(locationURL).to.be.eq(`https://www.latlong.net/c/?lat=${latitude}&long=${longitude}`)
+                })
+            })
+        })
+
+    }
+
 }
 
 export default new AssertHomePage()

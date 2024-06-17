@@ -12,7 +12,7 @@ Feature: Find Location
         And I click login button
         Then I land in my user page and I see a welcome message with my name
 
-    Scenario: I search a country and I get the latitude and the longitud
+    Scenario: I search a place and I get the latitude and the longitud
         When I click on the logo
         Then I verify that home page is visible successfully
         Then The "Place name" input, the "Latitude" input and the "Longitude" input are empty

@@ -18,4 +18,6 @@ Then('I click on "Find" button', () => {
 
 Then('I verify the latitude and the longitud numbers are visible', () => {
     AssertHomePage.checkLatitudeAndLongitudeNumberAreVisible()
+    AssertHomePage.checkShareLocationLink()
+    AssertHomePage.checkLocationURL()
 })

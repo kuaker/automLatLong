@@ -3,6 +3,8 @@ const PLACE_NAME = 'place'
 const LAT_NAME = 'lat'
 const LON_NAME = 'lng'
 const LAT_LONG_NUMBERS = '#latlngspan'
+const SHARE_LOCATION_LINK = '#coordinateslink'
+const LOCATION_URL = '#coordinatesurl'
 
 export class HomePage {
 
@@ -17,6 +19,10 @@ export class HomePage {
     clickOnFindButton = () => cy.contains('button', 'Find').click()
 
     getLatLongNumberSpan = () => cy.get(LAT_LONG_NUMBERS)
+
+    getShareLocationLink = () => cy.get(SHARE_LOCATION_LINK)
+
+    getLocationURL = () => cy.get(LOCATION_URL)
 
 }
 
